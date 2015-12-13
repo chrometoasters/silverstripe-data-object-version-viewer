@@ -76,7 +76,7 @@ class VersionViewerDataObject extends DataExtension {
 			$versions = $object->allVersions();
 			foreach($versions as $version) {
 				// Get a record of this version of the object
-				$record = Versioned::get_version($object->ClassName, $object->ID, $version->Version);
+				$record =  self::get_version($object->ClassName, $object->ID, $version->Version);
 
 				// Make a set of read-only fields for use in assembling the History tabs
 				$read_fields = $current_tabs->makeReadonly();
@@ -133,5 +133,14 @@ class VersionViewerDataObject extends DataExtension {
 			}
 		}
 		return $fields;
+	}
+	
+	public static function get_version($class, $id, $version) {
+		$list = DataList::create($class)
+			->where("\"$class\".\"RecordID\" = $id")
+			->where("\"$class\".\"Version\" = " . (int)$version)
+			->setDataQueryParam("Versioned.mode", 'all_versions');
+
+		return $list->First();
 	}
 }
