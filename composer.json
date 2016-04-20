@@ -1,33 +1,33 @@
 {
-    "name": "bluehousegroup/silverstripe-data-object-version-viewer",
-    "description": "Allows viewing of version history for data objects inside of the SilverStripe CMS",
-    "homepage": "https://github.com/bluehousegroup/silverstripe-data-object-version-viewer",
-    "type": "silverstripe-module",
-    "keywords": ["silverstripe", "data objects", "version"],
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Isaiah Keepin",
-            "email": "Isaiah@bluehousegroup.com",
-            "homepage": "http://bluehousegroup.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Andrew Rousseau",
-            "email": "Andrew@bluehousegroup.com",
-            "homepage": "http://bluehousegroup.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Jared Fullerton",
-            "email": "Jared@bluehousegroup.com",
-            "homepage": "http://bluehousegroup.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "silverstripe/framework": "~3.1",
-        "unclecheese/betterbuttons": "*"
-    }
-    
+	"name": "bluehousegroup/silverstripe-data-object-version-viewer",
+	"description": "Allows viewing of version history for data objects inside of the SilverStripe CMS",
+	"homepage": "https://github.com/bluehousegroup/silverstripe-data-object-version-viewer",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "data objects", "version"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Isaiah Keepin",
+			"email": "Isaiah@bluehousegroup.com",
+			"homepage": "http://bluehousegroup.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Andrew Rousseau",
+			"email": "Andrew@bluehousegroup.com",
+			"homepage": "http://bluehousegroup.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Jared Fullerton",
+			"email": "Jared@bluehousegroup.com",
+			"homepage": "http://bluehousegroup.com",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"silverstripe/framework": "~3.3",
+		"unclecheese/betterbuttons": "*"
+	}
+
 }
