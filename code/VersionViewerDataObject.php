@@ -85,7 +85,10 @@ class VersionViewerDataObject extends DataExtension
 
 				// Make a form using the relevant fields and load it with data from this record
 				$form = new Form($object, "old_version", $read_fields, $object->getCMSActions());
-				$form->loadDataFrom($record);
+
+				if($record) {
+					$form->loadDataFrom($record);
+				}
 
 				// Add the version number to each field name so we don't have duplicate field names
 				if($form->fields->dataFields()) {
