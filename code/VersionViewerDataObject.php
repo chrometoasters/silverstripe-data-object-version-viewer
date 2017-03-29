@@ -157,11 +157,27 @@ class VersionViewerDataObject extends DataExtension
 	 * @return DataObject
 	 */
 	public static function get_version($class, $id, $version) {
-		$list = DataList::create($class)
-			->where("\"$class\".\"RecordID\" = $id")
-			->where("\"$class\".\"Version\" = " . (int)$version)
-			->setDataQueryParam("Versioned.mode", 'all_versions');
+		// store data class for DataList
+		$dataClass = $class;
 
-		return $list->First();
+		// find an ancestor that has a data table
+		while (!DataObject::has_own_table($class)) {
+			$parentClass = get_parent_class($class);
+			if ($parentClass !== 'DataObject') { // if parent is DataObject, there is a db table
+				$class = $parentClass;
+			}
+		}
+
+		if (DataObject::has_own_table($class)) {
+			return
+				DataList::create($dataClass)
+					->where("\"$class\".\"RecordID\" = $id")
+					->where("\"$class\".\"Version\" = " . (int)$version)
+					->setDataQueryParam("Versioned.mode", 'all_versions')
+					->first();
+
+		}
+
+		throw new Exception("Couldn't find db table name for $class.");
 	}
 }
